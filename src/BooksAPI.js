@@ -1,6 +1,6 @@
+// Theodore Sawyer, FEND - Project 06: 'MyReads: A Book Tracking App' / BooksAPI.js / 09.29.18
 
 const api = "https://reactnd-books-api.udacity.com"
-
 
 // Generate a unique token for storing your bookshelf data on the backend server.
 let token = localStorage.token
