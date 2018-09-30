@@ -1,8 +1,21 @@
 // Theodore Sawyer, FEND - Project 06: 'MyReads: A Book Tracking App' / Book.js / 09.29.18
 
 import React, {Component} from 'react';
+import {update} from '../BooksAPI';
 
 export default class Book extends Component {
+  handleChange = async e => {
+    try {
+      const shelf = e.target.value;
+      const book = this.props;
+      const result = await update(book, shelf);
+
+      this.props.moveBook(book, shelf, result);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     return(<li>
       <div className="book">
@@ -13,7 +26,7 @@ export default class Book extends Component {
             backgroundImage: `url(${this.props.imageLinks.thumbnail})` }}>
           </div>
           <div className="book-shelf-changer">
-            <select>
+            <select onChange={this.handleChange}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
