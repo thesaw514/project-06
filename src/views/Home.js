@@ -5,7 +5,7 @@ import Shelf from '../components/Shelf';
 import Fab from '../components/Fab';
 import {getAll} from '../BooksAPI';
 
-export default class Home extends Component {
+class Home extends Component {
   async componentDidMount() {
     try {
       const books = await getAll();
@@ -30,3 +30,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;
